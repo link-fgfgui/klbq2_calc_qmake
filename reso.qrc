@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/otf">
+        <file>SourceHanSansSC-Regular-2.otf</file>
+    </qresource>
+</RCC>
