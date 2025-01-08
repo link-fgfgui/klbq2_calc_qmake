@@ -3,4 +3,4 @@
 
 [Android下载链接:https://link-fgfgui.lanzouv.com/b0ukw3z3e密码:8vh0](https://link-fgfgui.lanzouv.com/b0ukw3z3e)
 
-[Windows下载链接:待补充](https://example.com)
+[Windows下载链接:https://link-fgfgui.lanzouv.com/b0ukw3z3e密码:8vh0](https://link-fgfgui.lanzouv.com/b0ukw3z3e)
