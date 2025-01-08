@@ -2,4 +2,7 @@
     <qresource prefix="/otf">
         <file>SourceHanSansSC-Regular-2.otf</file>
     </qresource>
+    <qresource prefix="/icon">
+        <file>calculator.ico</file>
+    </qresource>
 </RCC>

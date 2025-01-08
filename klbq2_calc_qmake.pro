@@ -22,6 +22,9 @@ FORMS += \
 
 TRANSLATIONS += \
     klbq2_calc_qmake_zh_CN.ts
+
+RC_ICONS = calculator.ico
+
 CONFIG += lrelease
 CONFIG += embed_translations
 

@@ -1,10 +1,20 @@
 #include "widget.h"
 #include "ui_widget.h"
+#include <QtMath>
 
 void widget::showEvent(QShowEvent* event)
 {
     setAttribute(Qt::WA_Mapped);
     QWidget::showEvent(event);
+}
+
+float calc_ttk(int rof, int target, int damage)
+{
+    double rof2 = 60 / (float)rof;
+    int needbullet = qCeil((target - damage) / (float)damage);
+    double ret = rof2 * needbullet;
+    qDebug() << rof2 << needbullet << ret;
+    return ret;
 }
 
 QList<QList<int>> widget::matrixAdd(QJsonArray m1, QJsonArray m2)
@@ -146,7 +156,7 @@ QPair<QPair<QString, QString>, QList<float>> widget::calc(QString id, int rof, i
     b.append(rof);
     float dps = damage * (rof / 60) * bullet;
     b.append(dps);
-    b.append(target / dps);
+    b.append(calc_ttk(rof, target, damage * bullet));
     return QPair<QPair<QString, QString>, QList<float>>(a, b);
 }
 void widget::addResult(QString a1, int a2, QString a3, int a4, float a5)
@@ -298,6 +308,7 @@ widget::widget(QWidget* parent)
             + QString("\n错误信息:")
             + error);
     }).get();
+
     connect(ui->pushButton, &QPushButton::clicked, this, [&]
     {
         ui->tab2_table->setRowCount(0);
@@ -338,7 +349,7 @@ widget::widget(QWidget* parent)
             };
             loadUpgrade(upgradeObj, tmpql, rof, damage, bullet, damageRow, damageColumn);
             int dps = rof / 60 * damage * bullet;
-            float ttk = (float)ui->spinBox->value() / (float)dps;
+            float ttk = calc_ttk(rof, ui->spinBox->value(), damage * bullet);
             addResult(name, rof, QString::number(damage) + (bullet != 1 ? "x" + QString::number(bullet) : ""), dps, ttk);
         }
     });
